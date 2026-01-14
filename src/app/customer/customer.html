@@ -1,0 +1,38 @@
+<p>customer works!</p>
+<h1>{{customerid}}</h1>
+<input  type="text" name="" id="" #custname >
+<button (click)="showmessage(custname.value)">Greet</button>
+<br/>
+<input type="text" name="" id="" [(ngModel)]="customerid">
+<button (click)="print(customerid)">Pass Parameter using ngModel</button>
+<br/>
+
+<div *ngFor="let c of customerlist">
+{{c.id}}{{c.name}}
+<button (click)="showSelectedCustomer(c)">Select</button>
+</div>
+
+<br/>
+<button *ngFor="let c of customerlist" (click)="showSelectedCustomer(c)">{{c.id}} {{c.name}}Select</button>
+<br/>
+
+<label for="eventTarget">Event target</label>
+<input type="text" (input)="oninput($event)">
+
+<!-- <app-products></app-products> -->
+ <br/>
+ <form>
+  <fieldset>
+    <legend>Login</legend>
+    <label for="username">Enter UserName:</label>
+    <input type="text" name="username" id="username" (input)="readUserName($event)">
+    <br/>
+
+    <label for="pwd">Enter Password:</label>
+    <input type="password" name="pwd" id="pwd">
+    <br/>
+    
+    <input type="submit" value="Login" (click)="whichbutton($event)"/>
+     <input type="submit" value="Cancel" (click)="whichbutton($event)"/>
+  </fieldset>
+</form>

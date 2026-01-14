@@ -1,0 +1,34 @@
+<p>students works!</p>
+
+<!-- Component to View -->
+<!-- <label for="studentid">Enter Rollno:</label>
+<input type="number" name="studentid" id="studentid" [value]="rollno" >
+<br/>
+<label for="studentname">Enter StudentName:</label>
+<input type="text" name="studentname" id="studentname" [value]="name" > -->
+
+ <label for="studentid">Enter Rollno:</label>
+<input type="number" name="studentid" id="studentid" [(ngModel)]="rollno"  (input)="showDataEntered()" >
+<br/>
+<label for="studentname">Enter StudentName:</label>
+<input type="text" name="studentname" id="studentname" [(ngModel)]="name"  (blur)="convertToUpperCase()" > 
+<br/>
+<label for="marksdata">Enter MArks</label>
+<input type="number" name="marksdata" id="marksdata" [(ngModel)]="marks" (input)="showDataEntered()">
+
+<button (click)="convertToUpperCase()">UpperCase</button>
+<p>You entered {{name}} and {{rollno}}</p>
+
+<br/>
+<button (click)="DisableButton()">Disable the isAttentive button</button>
+<button [disabled]="isAttentive">{{name}} is Attentive  </button>
+<button (click)="EnableButton()">Enable the isAttentive button</button>
+<br/>
+
+
+<button (click)="WhenClicked()">click here</button>
+<input type="number"  name="" id="" [value]="numberofTimesClicked">
+<p>Button clicked:   {{numberofTimesClicked}}</p>
+
+
+<!-- disabled is property/attribute of button -->
