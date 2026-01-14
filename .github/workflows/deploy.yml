@@ -1,0 +1,22 @@
+name: Deploy Angular Frontend to Azure Web App - TrialWebAppAngular
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy Angular dist to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'TrialWebAppAngular'
+          slot-name: 'Production'
+          package: dist
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BE6E87F6B8F3482691D44AB5F2B011EC }}
